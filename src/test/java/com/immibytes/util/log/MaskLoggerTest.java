@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.spsa.util.log;
+package com.immibytes.util.log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +21,18 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.spsa.util.log.domain.TestDomain;
-import com.spsa.util.log.domain.TestMaskedDomain;
+import com.immibytes.util.log.domain.TestDomain;
+import com.immibytes.util.log.domain.TestMaskedDomain;
 
-public class ActivityLoggerTest {
+public class MaskLoggerTest {
 
 	@Test
 	public void testSimpleInstance() {
 		TestDomain test = new TestDomain();
-		ActivityLogger logger = new ActivityLogger();
+		MaskLogger logger = new MaskLogger();
 		String result = logger.toString(test);
-		System.out.println("result:" + result);
-		System.out.println("test:" + test);
+		//System.out.println("result:" + result);
+		//System.out.println("test:" + test);
 		Assert.assertEquals("[name=SPSenthil, instances=[], age=XX]", result);
 	}
 
@@ -40,9 +40,9 @@ public class ActivityLoggerTest {
 	public void testInstanceArrayValuesWithStringMask() {
 		TestDomain test = new TestDomain();
 		test.populate();
-		ActivityLogger logger = new ActivityLogger();
+		MaskLogger logger = new MaskLogger();
 		String result = logger.toString(test);
-		System.out.println("result:" + result);
+		//System.out.println("result:" + result);
 		Assert.assertEquals("[name=SPSenthil, instances=[[name=Arumugam, instances=[], age=XX]], age=XX]", result);
 	}
 
@@ -50,9 +50,9 @@ public class ActivityLoggerTest {
 	public void testInstanceWithArrayMask() {
 		TestMaskedDomain test = new TestMaskedDomain();
 		test.populate();
-		ActivityLogger logger = new ActivityLogger();
+		MaskLogger logger = new MaskLogger();
 		String result = logger.toString(test);
-		System.out.println("result:" + result);
+		//System.out.println("result:" + result);
 		Assert.assertEquals("[name=SPSenthil, instances=XX, age=XX]", result);
 	}
 
@@ -61,9 +61,9 @@ public class ActivityLoggerTest {
 		List<String> test = new ArrayList<>();
 		test.add("MSP");
 		test.add("Shop");
-		ActivityLogger logger = new ActivityLogger();
+		MaskLogger logger = new MaskLogger();
 		String result = logger.toString(test);
-		System.out.println("result:" + result);
+		//System.out.println("result:" + result);
 
 		Assert.assertEquals("[elementData=(MSP, Shop)]", result);
 	}
@@ -73,10 +73,10 @@ public class ActivityLoggerTest {
 		List<String> test = new ArrayList<>();
 		test.add("MSP");
 		test.add("Shop");
-		System.out.println(test);
-		ActivityLogger logger = new ActivityLogger();
+		//System.out.println(test);
+		MaskLogger logger = new MaskLogger();
 		String result = logger.toString(test);
-		System.out.println("result:" + result);
+		//System.out.println("result:" + result);
 
 		Assert.assertEquals("[elementData=(MSP, Shop)]", result);
 	}

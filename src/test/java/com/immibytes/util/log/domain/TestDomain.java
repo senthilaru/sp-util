@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.spsa.util.log.domain;
+package com.immibytes.util.log.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.spsa.util.log.Mask;
+import com.immibytes.util.log.Mask;
 
-public class TestMaskedDomain {
+public class TestDomain {
 
 	private String name = "SPSenthil";
-	private @Mask List<TestMaskedDomain> instances = new ArrayList<>();
+	private List<TestDomain> instances = new ArrayList<>();
 	private @Mask String age = "34";
 
-	public TestMaskedDomain() {
+	public TestDomain() {
 	}
 
-	public TestMaskedDomain(String name) {
+	public TestDomain(String name) {
 		this.name = name;
 	}
 
 	public void populate() {
-		instances.add(new TestMaskedDomain("Arumugam"));
+		instances.add(new TestDomain("Arumugam"));
 	}
 
 	public String getName() {
@@ -45,11 +45,11 @@ public class TestMaskedDomain {
 		this.name = name;
 	}
 
-	public List<TestMaskedDomain> getInstances() {
+	public List<TestDomain> getInstances() {
 		return instances;
 	}
 
-	public void setInstances(List<TestMaskedDomain> instances) {
+	public void setInstances(List<TestDomain> instances) {
 		this.instances = instances;
 	}
 
@@ -87,7 +87,7 @@ public class TestMaskedDomain {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		TestMaskedDomain other = (TestMaskedDomain) obj;
+		TestDomain other = (TestDomain) obj;
 		if (age == null) {
 			if (other.age != null) {
 				return false;

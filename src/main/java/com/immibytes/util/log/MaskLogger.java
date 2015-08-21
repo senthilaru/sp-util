@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.spsa.util.log;
+package com.immibytes.util.log;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
@@ -30,7 +30,7 @@ import java.util.Collection;
  * @since 1.0.0
  *
  */
-public class ActivityLogger {
+public class MaskLogger {
 	private static final String SERIAL_VERSION_UID = "serialVersionUID";
 	private static final String ELEMENT_DATA = "elementData";
 	private static final String JAVA_LANG = "java.lang";
@@ -99,8 +99,7 @@ public class ActivityLogger {
 					result.append(toString(field.get(instance)));
 				}
 			} catch (IllegalAccessException e) {
-				System.err.println(e);
-				e.printStackTrace();
+				return "Error occurred while masking input object:" + e.getMessage();
 			}
 
 		}
